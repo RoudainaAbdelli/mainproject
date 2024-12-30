@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Delete Coach{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Delete Coach</h1>
+        <p>Are you sure you want to delete this coach?</p>
+        <form method="post" action="{{ path('coach_delete', {'id': coach.id}) }}">
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a href="{{ path('coach_index') }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

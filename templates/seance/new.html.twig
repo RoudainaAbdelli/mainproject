@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create New Seance{% endblock %}
+
+{% block body %}
+    <main class="container mt-5">
+        <header class="text-center mb-4">
+            <h1 class="display-5 text-primary">Create a New Seance</h1>
+            <p class="text-muted">Fill in the details below to create a new seance.</p>
+        </header>
+
+        <div class="card shadow p-4">
+            {{ form_start(form) }}
+
+            <!-- Title Row -->
+            <div class="mb-3">
+                {{ form_label(form.title, null, {'label_attr': {'class': 'form-label fw-bold fs-5'}}) }}
+                {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <!-- Capacity and Duration -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    {{ form_label(form.capacite, 'Capacity', {'label_attr': {'class': 'form-label fw-bold fs-5'}}) }}
+                    {{ form_widget(form.capacite, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_label(form.duree, 'Duration (minutes)', {'label_attr': {'class': 'form-label fw-bold fs-5'}}) }}
+                    {{ form_widget(form.duree, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <!-- Date and Time -->
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    {{ form_label(form.dateHeure, 'Date and Time', {'label_attr': {'class': 'form-label fw-bold fs-5'}}) }}
+                    <div class="d-flex align-items-center">
+                        <!-- Date (Day, Month, Year) -->
+                        <div class="d-flex me-3">
+                            {{ form_widget(form.dateHeure.date.day, {'attr': {'class': 'form-control me-1', 'placeholder': 'Day'}}) }}
+                            {{ form_widget(form.dateHeure.date.month, {'attr': {'class': 'form-control me-1', 'placeholder': 'Month'}}) }}
+                            {{ form_widget(form.dateHeure.date.year, {'attr': {'class': 'form-control', 'placeholder': 'Year'}}) }}
+                        </div>
+
+                        <!-- Time (Hour, Minute) -->
+                        <div class="d-flex">
+                            {{ form_widget(form.dateHeure.time.hour, {'attr': {'class': 'form-control me-1', 'placeholder': 'Hour'}}) }}
+                            {{ form_widget(form.dateHeure.time.minute, {'attr': {'class': 'form-control', 'placeholder': 'Minute'}}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Salle and Coach -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    {{ form_label(form.salle, 'Salle', {'label_attr': {'class': 'form-label fw-bold fs-5'}}) }}
+                    {{ form_widget(form.salle, {'attr': {'class': 'form-select'}}) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_label(form.coach, 'Coach', {'label_attr': {'class': 'form-label fw-bold fs-5'}}) }}
+                    {{ form_widget(form.coach, {'attr': {'class': 'form-select'}}) }}
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+                {{ form_label(form.description, 'Description', {'label_attr': {'class': 'form-label fw-bold fs-5'}}) }}
+                {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex justify-content-between mt-4">
+                <a href="{{ path('seance_index') }}" class="btn btn-secondary btn-lg">
+                    <i class="bi bi-arrow-left"></i> Back to List
+                </a>
+                <button class="btn btn-success btn-lg">
+                    <i class="bi bi-save"></i> {{ button_label|default('Save') }}
+                </button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </main>
+{% endblock %}

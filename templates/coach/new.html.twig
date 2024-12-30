@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Coach{% endblock %}
+
+{% block body %}
+    <div class="header">Add New Coach</div>
+
+    <div class="container">
+        {{ form_start(form) }}
+        {{ include('coach/form.html.twig') }}
+        <button class="btn btn-primary">Save</button>
+        <a href="{{ path('coach_index') }}" class="btn btn-secondary">Back to list</a>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

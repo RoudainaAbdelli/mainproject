@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Our Services{% endblock %}
+
+{% block body %}
+    <main>
+        <!--? Hero Start -->
+        <div class="slider-area2">
+            <div class="slider-height2 d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap hero-cap2 pt-70">
+                                <h2>Our Services</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->
+
+        <!--? Services Area Start -->
+        <section class="services-area section-padding30 fix">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="section-tittle text-center mb-55">
+                            <h2>Our Fitness Services</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-services mb-30">
+                            <div class="services-icon">
+                                <img src="{{ asset('assets/img/icon/service1.svg') }}" alt="">
+                            </div>
+                            <div class="services-caption">
+                                <h4><a href="{{ path('body_building') }}">Body Building</a></h4>
+                                <p>Intensive training programs tailored to build your muscles and enhance your strength.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-services mb-30">
+                            <div class="services-icon">
+                                <img src="{{ asset('assets/img/icon/service2.svg') }}" alt="">
+                            </div>
+                            <div class="services-caption">
+                                <h4><a href="{{ path('cardio_training') }}">Cardio Training</a></h4>
+                                <p>Cardiovascular workouts to improve your heart health and endurance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-services mb-30">
+                            <div class="services-icon">
+                                <img src="{{ asset('assets/img/icon/service3.svg') }}" alt="">
+                            </div>
+                            <div class="services-caption">
+                                <h4><a href="{{ path('nutrition_plan') }}">Nutrition Plans</a></h4>
+                                <p>Customized nutrition plans to complement your fitness goals and lifestyle.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services Area End -->
+    </main>
+{% endblock %}

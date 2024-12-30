@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Seance Details{% endblock %}
+
+{% block body %}
+    <main class="container my-5">
+        <!-- Page Header -->
+        <header class="text-center mb-5">
+            <h1 class="display-5 text-primary">Seance Details</h1>
+            <p class="text-muted">All information about the selected seance.</p>
+            <hr class="my-4">
+        </header>
+
+        <!-- Seance Details Card -->
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h4 mb-0">Seance Information</h2>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <tbody>
+                    <tr>
+                        <th class="text-secondary">ID</th>
+                        <td>{{ seance.id }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-secondary">Title</th>
+                        <td>{{ seance.title }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-secondary">Description</th>
+                        <td>{{ seance.description }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-secondary">Duration (minutes)</th>
+                        <td>{{ seance.duree }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-secondary">Capacity</th>
+                        <td>{{ seance.capacite }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-secondary">Date & Time</th>
+                        <td>{{ seance.dateHeure ? seance.dateHeure|date('Y-m-d H:i') : 'N/A' }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-secondary">Salle</th>
+                        <td>{{ seance.salle ? seance.salle.name : 'N/A' }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-secondary">Coach</th>
+                        <td>{{ seance.coach ? seance.coach.name : 'N/A' }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="mt-4 d-flex justify-content-between">
+            <a href="{{ path('seance_index') }}" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Back to List
+            </a>
+            <div>
+                <a href="{{ path('seance_edit', {'id': seance.id}) }}" class="btn btn-outline-primary me-2">
+                    <i class="bi bi-pencil"></i> Edit
+                </a>
+                {{ include('seance/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </main>
+{% endblock %}
+

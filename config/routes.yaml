@@ -1,5 +1,48 @@
-controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+# config/routes.yaml
+index:
+  path: /home
+  controller: App\Controller\DefaultController::index
+
+about:
+  path: /about
+  controller: App\Controller\DefaultController::about
+
+courses:
+  path: /courses
+  controller: App\Controller\DefaultController::courses
+
+pricing:
+  path: /pricing
+  controller: App\Controller\DefaultController::pricing
+
+gallery:
+  path: /gallery
+  controller: App\Controller\DefaultController::gallery
+
+contact:
+  path: /contact
+  controller: App\Controller\DefaultController::contact
+
+blog:
+  path: /blog
+  controller: App\Controller\DefaultController::blog
+
+blog_details:
+  path: /blog_details
+  controller: App\Controller\DefaultController::blog_details
+
+elements:
+  path: /elements
+  controller: App\Controller\DefaultController::elements
+
+services:
+  path: /services
+  controller: App\Controller\DefaultController::services
+
+seance:
+  resource: '../src/Controller/SeanceController.php'
+  type: annotation
+
+coach_index:
+  path: /coach
+  controller: App\Controller\CoachController::index

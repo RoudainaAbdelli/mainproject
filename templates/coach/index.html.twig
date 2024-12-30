@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coach Dashboard{% endblock %}
+
+{% block body %}
+    <div class="header">Coach Dashboard</div>
+
+    <div class="container text-center">
+        <h2>Scheduled Sessions</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Session ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Date & Time</th>
+                <th>Participants</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for seance in seances %}
+                <tr>
+                    <td>{{ seance.id }}</td>
+                    <td>{{ seance.title }}</td>
+                    <td>{{ seance.description }}</td>
+                    <td>{{ seance.dateHeure|date('Y-m-d H:i') }}</td>
+                    <td>{{ seance.participants|length }}</td>
+                    <td>
+                        <a href="{{ path('seance_show', {'id': seance.id}) }}" class="action-btn btn-view">View</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">No scheduled sessions found.</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <style>
+
+    </style>
+{% endblock %}
